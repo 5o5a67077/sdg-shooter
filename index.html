@@ -9,10 +9,9 @@
   </style>
 </head>
 <body>
-<script type="module">
-  import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.module.js';
-  import { PointerLockControls } from 'https://cdn.jsdelivr.net/npm/three@0.150.1/examples/jsm/controls/PointerLockControls.js';
-
+<script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.150.1/examples/js/controls/PointerLockControls.min.js"></script>
+<script>
   let scene, camera, renderer, controls;
   let bullets = [];
   let enemies = [];
@@ -42,8 +41,8 @@
     floor.rotation.x = -Math.PI / 2;
     scene.add(floor);
 
-    controls = new PointerLockControls(camera, document.body);
-    document.addEventListener('click', () => controls.lock());
+    controls = new THREE.PointerLockControls(camera, document.body);
+    document.body.addEventListener('click', () => controls.lock());
     scene.add(controls.getObject());
 
     const move = { forward: false, back: false, left: false, right: false };
